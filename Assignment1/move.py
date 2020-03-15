@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 from ev3dev2.motor import *
 from ev3dev2.sensor.lego import ColorSensor
-from ev3dev2.sensor.lego import GyroSensor
 from ev3dev2.sound import Sound
 from time import sleep
+
+time.sleep(0.5)
+
 
 ## sensors
 cl = ColorSensor()
 cl.mode = 'COL-COLOR'
 
 sound = Sound()
-gy = GyroSensor() # not used now
 
 ## controls robot
 drive = MoveTank(OUTPUT_B, OUTPUT_C)
@@ -52,6 +53,7 @@ while True:
         if count < 7:
             count -= 1
             drive.on_for_rotations(SpeedPercent(20), SpeedPercent(20), -1.2)
+
 
         elif 7 < count < 13:
             count -= 1
